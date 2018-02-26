@@ -29,11 +29,13 @@
     return self;
 }
 
-#pragma mark - Common
+#pragma mark - Setup
 
 - (void)bindPropertyName:(NSString *)property callback:(LKBindingCallback)callback {
     NSAssert(property && [property isKindOfClass:[NSString class]] && property.length > 0, @"Invalid property name.");
-    NSAssert([self valueForKeyPath:property], @"%@ does not have property named '%@'.", NSStringFromClass(self.class), property);
+    NSAssert([self respondsToSelector:NSSelectorFromString(property)],
+             @"%@ does not have property named '%@'.",
+             NSStringFromClass(self.class), property);
     NSAssert(callback, @"Invalid callback");
     // add key if it's not presented yet
     if (![self.bindings objectForKey:property]) {

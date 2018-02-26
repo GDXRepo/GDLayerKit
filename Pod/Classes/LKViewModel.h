@@ -12,7 +12,7 @@ typedef void(^LKBindingCallback)(id oldValue, id newValue);
 
 @interface LKViewModel : NSObject
 
-#pragma mark - Common
+#pragma mark - Setup
 
 - (void)bindPropertyName:(NSString *)property callback:(LKBindingCallback)callback;
 

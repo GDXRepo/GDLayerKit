@@ -7,36 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Masonry/Masonry.h>
 #import "LKViewModel.h"
+#import "LKUIFactory.h"
+#import "LKHelper.h"
 
 /// Implements app's screen. Reflects View(Controller) entity in the MVVM architecture pattern.
-@interface LKViewController : UIViewController
+@interface LKViewController : UIViewController <LKUIConfigurable>
 
 @property (nonatomic, readonly) LKViewModel *viewModel;
-
-#pragma mark - Root
-
-#warning TODO This is correct, but when and where should we create controllers?
-- (instancetype)initWithViewModel:(LKViewModel *)model;
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
+@property (nonatomic, readonly) Class viewModelClass;
 
 #pragma mark - Setup
-
-/// Creates all the subviews.
-- (void)make;
 
 /// Updates constraints using SnapKit/Masonry library.
 - (void)updateViewConstraints;
 
 /// Determines view's behavior depending on binded properties.
-- (void)bind;
+- (void)bindAll;
 
-/// Localizes static UI elements.
+/// Localizes view and its subviews.
 - (void)localize;
-
-/// Refreshes all subviews using current viewModel's state.
-- (void)reloadData;
 
 #pragma mark - Utils
 

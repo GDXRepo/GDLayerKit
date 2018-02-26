@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "LKUITheme.h"
-
-#define LKUIBegin(Classname) Classname *v = [[Classname alloc] initWithFrame:CGRectZero]
-#define LKUIEnd [view addSubview:v]; return v;
+#import "LKHelper.h"
 
 @interface LKUIFactory : NSObject
 
@@ -37,6 +35,8 @@
                    superview:(UIView *)view;
 + (UIButton *)buttonWithTarget:(id)target action:(SEL)action superview:(UIView *)view;
 + (UIButton *)buttonWithSuperview:(UIView *)view;
++ (UIButton *)buttonSystemWithTarget:(id)target action:(SEL)action superview:(UIView *)view;
++ (UIButton *)buttonSystemWithSuperview:(UIView *)view;
 
 #pragma mark - UIImageView
 

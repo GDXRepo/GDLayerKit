@@ -28,7 +28,7 @@
 #pragma mark - UIButton
 
 + (UIButton *)buttonWithImageNamed:(NSString *)imageName target:(id)target action:(SEL)action superview:(UIView *)view {
-    LKUIBegin(UIButton);
+    UIButton *v = [UIButton buttonWithType:UIButtonTypeSystem];
     [v setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     if (target && action) {
         [v addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -41,7 +41,7 @@
 }
 
 + (UIButton *)buttonWithText:(NSString *)text font:(UIFont *)font textColor:(UIColor *)color target:(id)target action:(SEL)action superview:(UIView *)view {
-    LKUIBegin(UIButton);
+    UIButton *v = [UIButton buttonWithType:UIButtonTypeCustom];
     NSDictionary *attri = @{
                             NSFontAttributeName : font,
                             NSForegroundColorAttributeName : color
@@ -57,22 +57,35 @@
 + (UIButton *)buttonWithText:(NSString *)text font:(UIFont *)font target:(id)target action:(SEL)action superview:(UIView *)view {
     return [self.class buttonWithText:text
                                  font:font
-                            textColor:[UIColor whiteColor]
+                            textColor:[UIColor blackColor]
                                target:target
                                action:action
                             superview:view];
 }
 
 + (UIButton *)buttonWithTarget:(id)target action:(SEL)action superview:(UIView *)view {
-    LKUIBegin(UIButton);
+    UIButton *v = [UIButton buttonWithType:UIButtonTypeCustom];
+    [v setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     if (target && action) {
         [v addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     }
     LKUIEnd;
 }
 
-+ (UIButton *)buttonWithText:(NSString *)text superview:(UIView *)view {
++ (UIButton *)buttonWithSuperview:(UIView *)view {
     return [self.class buttonWithTarget:nil action:nil superview:view];
+}
+
++ (UIButton *)buttonSystemWithTarget:(id)target action:(SEL)action superview:(UIView *)view {
+    UIButton *v = [UIButton buttonWithType:UIButtonTypeSystem];
+    if (target && action) {
+        [v addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    }
+    LKUIEnd;
+}
+
++ (UIButton *)buttonSystemWithSuperview:(UIView *)view {
+    return [self.class buttonSystemWithTarget:nil action:nil superview:view];
 }
 
 #pragma mark - UIImageView
