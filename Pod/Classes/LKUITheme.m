@@ -1,6 +1,6 @@
 //
 //  LKUITheme.m
-//  LayerKit
+//  GDLayerKit
 //
 //  Created by Georgiy Malyukov on 22.02.2018.
 //  Copyright © 2018 Georgiy Malyukov. All rights reserved.
