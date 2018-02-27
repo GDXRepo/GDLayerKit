@@ -17,10 +17,10 @@
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     if (!self.instantiated) {
-        _instantiated = YES;
         [self setup];
         [self make];
         [self localize];
+        _instantiated = YES;
     }
     [self setNeedsLayout];
 }
@@ -28,6 +28,7 @@
 #pragma mark - LKComponent
 
 - (void)setup {
+    self.translatesAutoresizingMaskIntoConstraints = NO;
     self.clipsToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
 }
