@@ -14,6 +14,7 @@ typedef void(^LKBindingCallback)(id oldValue, id newValue);
 
 #pragma mark - Setup
 
-- (void)bindPropertyName:(NSString *)property callback:(LKBindingCallback)callback;
+- (void)bindProperty:(NSString *)property toCallback:(LKBindingCallback)callback;
+- (void)bindProperties:(NSArray<NSString *> *)propertyList toCallback:(LKBindingCallback)callback;
 
 @end

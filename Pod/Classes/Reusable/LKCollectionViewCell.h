@@ -11,6 +11,6 @@
 #import "LKUIFactory.h"
 #import "LKHelper.h"
 
-@interface LKCollectionViewCell : UICollectionViewCell <LKUIReusable>
+@interface LKCollectionViewCell : UICollectionViewCell <LKComponent>
 
 @end

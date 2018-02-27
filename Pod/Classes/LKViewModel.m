@@ -31,8 +31,10 @@
 
 #pragma mark - Setup
 
-- (void)bindPropertyName:(NSString *)property callback:(LKBindingCallback)callback {
-    NSAssert(property && [property isKindOfClass:[NSString class]] && property.length > 0, @"Invalid property name.");
+- (void)bindProperty:(NSString *)property toCallback:(LKBindingCallback)callback {
+    NSAssert(property && [property isKindOfClass:NSString.self] && property.length > 0,
+             @"Invalid property name '%@'.",
+             property);
     NSAssert([self respondsToSelector:NSSelectorFromString(property)],
              @"%@ does not have property named '%@'.",
              NSStringFromClass(self.class), property);
@@ -45,6 +47,13 @@
     }
     // add callback
     [self.bindings[property] addObject:callback];
+}
+
+- (void)bindProperties:(NSArray<NSString *> *)propertyList toCallback:(LKBindingCallback)callback {
+    NSSet *set = [NSSet setWithArray:propertyList];
+    for (NSString *property in set) {
+        [self bindProperty:property toCallback:callback];
+    }
 }
 
 #pragma mark - NSObject

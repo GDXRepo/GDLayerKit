@@ -30,7 +30,15 @@
     [self.view setNeedsUpdateConstraints];
 }
 
-#pragma mark - Setup
+#pragma mark - LKView
+
+- (void)setup {
+    // empty
+}
+
+- (void)make {
+    // empty
+}
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
@@ -41,16 +49,6 @@
 }
 
 - (void)localize {
-    // empty
-}
-
-#pragma mark - LKUIConfigurable
-
-- (void)setup {
-    // empty
-}
-
-- (void)make {
     // empty
 }
 

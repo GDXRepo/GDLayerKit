@@ -20,19 +20,12 @@
         _instantiated = YES;
         [self setup];
         [self make];
+        [self localize];
     }
     [self setNeedsLayout];
 }
 
-#pragma mark - LKUIReusable
-
-- (void)updateConstraints {
-    [super updateConstraints];
-}
-
-- (void)reset {
-    // empty
-}
+#pragma mark - LKComponent
 
 - (void)setup {
     self.clipsToBounds = NO;
@@ -40,6 +33,18 @@
 }
 
 - (void)make {
+    // empty
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+}
+
+- (void)localize {
+    // empty
+}
+
+- (void)reset {
     // empty
 }
 

@@ -29,13 +29,27 @@
 /// Creates subviews.
 - (void)make;
 
+/// Localizes subviews.
+- (void)localize;
+
 /// Updates the component's data using its current state.
 - (void)reloadData;
 
 @end
 
 
-@protocol LKUIReusable <LKUIConfigurable>
+@protocol LKView <LKUIConfigurable>
+
+/// Updates constraints using SnapKit/Masonry library.
+- (void)updateViewConstraints;
+
+/// Performs binding.
+- (void)bindAll;
+
+@end
+
+
+@protocol LKComponent <LKUIConfigurable>
 
 @property (nonatomic, readonly) BOOL instantiated;
 

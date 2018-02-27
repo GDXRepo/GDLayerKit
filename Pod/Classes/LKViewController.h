@@ -13,21 +13,10 @@
 #import "LKHelper.h"
 
 /// Implements app's screen. Reflects View(Controller) entity in the MVVM architecture pattern.
-@interface LKViewController : UIViewController <LKUIConfigurable>
+@interface LKViewController : UIViewController <LKView>
 
 @property (nonatomic, readonly) LKViewModel *viewModel;
 @property (nonatomic, readonly) Class viewModelClass;
-
-#pragma mark - Setup
-
-/// Updates constraints using SnapKit/Masonry library.
-- (void)updateViewConstraints;
-
-/// Determines view's behavior depending on binded properties.
-- (void)bindAll;
-
-/// Localizes view and its subviews.
-- (void)localize;
 
 #pragma mark - Utils
 
