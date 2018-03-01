@@ -41,7 +41,7 @@
 }
 
 - (UIFont *)fontWithSize:(CGFloat)size {
-    return [self fontWithWeight:UIFontWeightRegular];
+    return [self fontWithSize:size weight:self.fontWeightDefault];
 }
 
 - (UIFont *)fontDefault {
