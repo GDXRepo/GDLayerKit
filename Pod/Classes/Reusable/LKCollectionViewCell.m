@@ -22,13 +22,13 @@
         [self localize];
         _instantiated = YES;
     }
-    [self setNeedsLayout];
+    [self setNeedsUpdateConstraints];
 }
 
 #pragma mark - LKComponent
 
 - (void)setup {
-    self.translatesAutoresizingMaskIntoConstraints = NO;
+    // empty
 }
 
 - (void)make {
@@ -48,7 +48,7 @@
 }
 
 - (void)reloadData {
-    // empty
+    NSAssert(self.instantiated, @"Component must be placed on a view before reloading data.");
 }
 
 @end

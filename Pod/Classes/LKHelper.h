@@ -9,7 +9,7 @@
 #ifndef LKHelper_h
 #define LKHelper_h
 
-#define LKMake \
+#define LKComponentMake \
     if (self.instantiated) { \
         return; \
     } \

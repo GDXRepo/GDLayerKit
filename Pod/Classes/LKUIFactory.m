@@ -28,7 +28,7 @@
 #pragma mark - UIButton
 
 + (UIButton *)buttonWithImageNamed:(NSString *)imageName target:(id)target action:(SEL)action superview:(UIView *)view {
-    UIButton *v = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *v = [UIButton buttonWithType:UIButtonTypeCustom];
     [v setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     if (target && action) {
         [v addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
