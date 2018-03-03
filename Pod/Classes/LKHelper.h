@@ -10,7 +10,7 @@
 #define LKHelper_h
 
 #define LKComponentMake \
-    if (self.instantiated) { \
+    if (self.ready) { \
         return; \
     } \
     [super make];
@@ -51,7 +51,7 @@
 
 @protocol LKComponent <LKUIConfigurable>
 
-@property (nonatomic, readonly) BOOL instantiated;
+@property (nonatomic, readonly) BOOL ready;
 
 /// Updates constraints using SnapKit/Masonry library.
 - (void)updateConstraints;

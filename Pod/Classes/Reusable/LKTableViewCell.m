@@ -10,19 +10,24 @@
 
 @implementation LKTableViewCell
 
-@synthesize instantiated = _instantiated;
+@synthesize ready = _ready;
 
 #pragma mark - Root
 
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-    if (!self.instantiated) {
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:(CGRect)frame];
+    if (self) {
         [self setup];
         [self make];
         [self localize];
-        _instantiated = YES;
+        _ready = YES;
     }
+    return self;
+}
+
+- (void)didMoveToSuperview {
     [self setNeedsUpdateConstraints];
+    [super didMoveToSuperview];
 }
 
 #pragma mark - LKComponent
@@ -48,7 +53,7 @@
 }
 
 - (void)reloadData {
-    NSAssert(self.instantiated, @"Component must be placed on a view before reloading data.");
+    // empty
 }
 
 @end

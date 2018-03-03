@@ -10,17 +10,17 @@
 
 @implementation LKComponent
 
-@synthesize instantiated = _instantiated;
+@synthesize ready = _ready;
 
 #pragma mark - Root
 
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
-    if (!self.instantiated) {
+    if (!self.ready) {
         [self setup];
         [self make];
         [self localize];
-        _instantiated = YES;
+        _ready = YES;
     }
     [self setNeedsUpdateConstraints];
 }
@@ -49,7 +49,7 @@
 }
 
 - (void)reloadData {
-    NSAssert(self.instantiated, @"Component must be placed on a view before reloading data.");
+    NSAssert(self.ready, @"Component must be placed on a view before reloading data.");
 }
 
 @end
