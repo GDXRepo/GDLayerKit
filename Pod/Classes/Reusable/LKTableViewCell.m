@@ -25,9 +25,9 @@
     return self;
 }
 
-- (void)didMoveToSuperview {
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
     [self setNeedsUpdateConstraints];
-    [super didMoveToSuperview];
 }
 
 #pragma mark - LKComponent

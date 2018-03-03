@@ -14,8 +14,8 @@
 
 #pragma mark - Root
 
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
     if (!self.ready) {
         [self setup];
         [self make];
