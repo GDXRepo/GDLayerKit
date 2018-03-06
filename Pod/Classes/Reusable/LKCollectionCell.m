@@ -1,14 +1,14 @@
 //
-//  LKTableViewCell.m
+//  LKCollectionCell.m
 //  GDLayerKit
 //
 //  Created by Georgiy Malyukov on 26.02.2018.
 //  Copyright © 2018 Georgiy Malyukov. All rights reserved.
 //
 
-#import "LKTableViewCell.h"
+#import "LKCollectionCell.h"
 
-@implementation LKTableViewCell
+@implementation LKCollectionCell
 
 @synthesize ready = _ready;
 

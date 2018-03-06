@@ -1,21 +1,32 @@
 //
-//  LKCollectionViewCell.m
+//  LKTableCell.m
 //  GDLayerKit
 //
 //  Created by Georgiy Malyukov on 26.02.2018.
 //  Copyright © 2018 Georgiy Malyukov. All rights reserved.
 //
 
-#import "LKCollectionViewCell.h"
+#import "LKTableCell.h"
 
-@implementation LKCollectionViewCell
+@implementation LKTableCell
 
 @synthesize ready = _ready;
 
 #pragma mark - Root
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:(CGRect)frame];
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+        [self make];
+        [self localize];
+        _ready = YES;
+    }
+    return self;
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setup];
         [self make];

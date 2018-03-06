@@ -1,5 +1,5 @@
 //
-//  LKTableViewCell.h
+//  LKCollectionCell.h
 //  GDLayerKit
 //
 //  Created by Georgiy Malyukov on 26.02.2018.
@@ -11,6 +11,6 @@
 #import "LKUIFactory.h"
 #import "LKHelper.h"
 
-@interface LKTableViewCell : UITableViewCell <LKComponent>
+@interface LKCollectionCell : UICollectionViewCell <LKComponent>
 
 @end
