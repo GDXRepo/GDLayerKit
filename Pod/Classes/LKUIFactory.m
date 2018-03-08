@@ -57,7 +57,7 @@
 + (UIButton *)buttonWithText:(NSString *)text font:(UIFont *)font target:(id)target action:(SEL)action superview:(UIView *)view {
     return [self.class buttonWithText:text
                                  font:font
-                            textColor:[UIColor blackColor]
+                            textColor:UIColor.blackColor
                                target:target
                                action:action
                             superview:view];
@@ -65,7 +65,7 @@
 
 + (UIButton *)buttonWithTarget:(id)target action:(SEL)action superview:(UIView *)view {
     UIButton *v = [UIButton buttonWithType:UIButtonTypeCustom];
-    [v setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [v setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     if (target && action) {
         [v addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     }
@@ -101,6 +101,12 @@
     return [self.class imageViewWithImageNamed:imageName contentMode:UIViewContentModeScaleAspectFit superview:view];
 }
 
++ (UIImageView *)imageViewWithContentMode:(UIViewContentMode)mode superview:(UIView *)view {
+    LKUIBegin(UIImageView);
+    v.contentMode = mode;
+    LKUIEnd;
+}
+
 #pragma mark - UILabel
 
 + (UILabel *)labelWithFont:(UIFont *)font textColor:(UIColor *)color wordWrap:(BOOL)isWordWrap superview:(UIView *)view {
@@ -121,7 +127,7 @@
 
 + (UILabel *)labelWithWordWrap:(BOOL)isWordWrap superview:(UIView *)view {
     return [self.class labelWithFont:[UIFont systemFontOfSize:17]
-                           textColor:[UIColor whiteColor]
+                           textColor:UIColor.whiteColor
                             wordWrap:isWordWrap
                            superview:view];
 }
@@ -130,11 +136,28 @@
     return [self.class labelWithWordWrap:YES superview:view];
 }
 
+#pragma mark - UITableView
+
++ (UITableView *)tableViewWithDataSource:(id<UITableViewDataSource>)dataSource delegate:(id<UITableViewDelegate>)delegate backgroundColor:(UIColor *)color separatorStyle:(UITableViewCellSeparatorStyle)style superview:(UIView *)view {
+    LKUIBegin(UITableView);
+    v.dataSource = dataSource;
+    v.delegate = delegate;
+    v.estimatedRowHeight = 44; // default value
+    v.backgroundColor = color;
+    v.separatorStyle = style;
+    LKUIEnd;
+}
+
 #pragma mark - UIView
 
-+ (UIView *)viewWithSuperview:(UIView *)view {
++ (UIView *)viewWithBackgroundColor:(UIColor *)color superview:(UIView *)view {
     LKUIBegin(UIView);
+    v.backgroundColor = color;
     LKUIEnd;
+}
+
++ (UIView *)viewWithSuperview:(UIView *)view {
+    return [self.class viewWithBackgroundColor:UIColor.whiteColor superview:view];
 }
 
 + (UIView *)view {

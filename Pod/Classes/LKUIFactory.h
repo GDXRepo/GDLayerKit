@@ -42,6 +42,7 @@
 
 + (UIImageView *)imageViewWithImageNamed:(NSString *)imageName contentMode:(UIViewContentMode)mode superview:(UIView *)view;
 + (UIImageView *)imageViewWithImageNamed:(NSString *)imageName superview:(UIView *)view;
++ (UIImageView *)imageViewWithContentMode:(UIViewContentMode)mode superview:(UIView *)view;
 
 #pragma mark - UILabel
 
@@ -52,8 +53,17 @@
 + (UILabel *)labelWithWordWrap:(BOOL)isWordWrap superview:(UIView *)view;
 + (UILabel *)labelWithSuperview:(UIView *)view;
 
+#pragma mark - UITableView
+
++ (UITableView *)tableViewWithDataSource:(id<UITableViewDataSource>)dataSource
+                                delegate:(id<UITableViewDelegate>)delegate
+                         backgroundColor:(UIColor *)color
+                          separatorStyle:(UITableViewCellSeparatorStyle)style
+                               superview:(UIView *)view;
+
 #pragma mark - UIView
 
++ (UIView *)viewWithBackgroundColor:(UIColor *)color superview:(UIView *)view;
 + (UIView *)viewWithSuperview:(UIView *)view;
 + (UIView *)view;
 

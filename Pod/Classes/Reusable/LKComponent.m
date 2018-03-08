@@ -10,18 +10,20 @@
 
 @implementation LKComponent
 
-@synthesize ready = _ready;
-
 #pragma mark - Root
 
-- (void)willMoveToSuperview:(UIView *)newSuperview {
-    [super willMoveToSuperview:newSuperview];
-    if (!self.ready) {
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
         [self setup];
         [self make];
         [self localize];
-        _ready = YES;
     }
+    return self;
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
     [self setNeedsUpdateConstraints];
 }
 
@@ -49,7 +51,7 @@
 }
 
 - (void)reloadData {
-    NSAssert(self.ready, @"Component must be placed on a view before reloading data.");
+    // empty
 }
 
 @end

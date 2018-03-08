@@ -13,4 +13,16 @@
 
 @interface LKTableCell : UITableViewCell <LKComponent>
 
+/**
+ Creates subviews.
+ @discussion Please do not forget to use "self.contentView" instead of "self"!
+ */
+- (void)make;
+
+/**
+ Updates constraints using SnapKit/Masonry library.
+ @discussion Please do not forget to use "self.contentView" instead of "self" where necessary!
+ */
+- (void)updateConstraints;
+
 @end

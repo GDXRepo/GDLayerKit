@@ -9,12 +9,6 @@
 #ifndef LKHelper_h
 #define LKHelper_h
 
-#define LKComponentMake \
-    if (self.ready) { \
-        return; \
-    } \
-    [super make];
-
 #define LKUIBegin(Classname) Classname *v = [[Classname alloc] initWithFrame:CGRectZero]
 #define LKUIEnd [view addSubview:v]; return v;
 
@@ -31,6 +25,9 @@
 
 /// Localizes subviews.
 - (void)localize;
+
+/// Resets the component's state to its defaults.
+- (void)reset;
 
 /// Updates the component's data using its current state.
 - (void)reloadData;
@@ -51,13 +48,8 @@
 
 @protocol LKComponent <LKUIConfigurable>
 
-@property (nonatomic, readonly) BOOL ready;
-
 /// Updates constraints using SnapKit/Masonry library.
 - (void)updateConstraints;
-
-/// Resets the component's state to its defaults.
-- (void)reset;
 
 @end
 

@@ -10,8 +10,6 @@
 
 @implementation LKCollectionCell
 
-@synthesize ready = _ready;
-
 #pragma mark - Root
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -20,7 +18,6 @@
         [self setup];
         [self make];
         [self localize];
-        _ready = YES;
     }
     return self;
 }
