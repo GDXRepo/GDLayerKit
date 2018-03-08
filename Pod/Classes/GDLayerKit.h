@@ -9,6 +9,9 @@
 #ifndef GDLayerKit_h
 #define GDLayerKit_h
 
+#import <Foundation/Foundation.h>
+#import "LKHelper.h"
+#import "LKComponent.h"
 #import "LKViewController.h"
 #import "LKTableCell.h"
 #import "LKCollectionCell.h"
