@@ -52,6 +52,10 @@
     // empty
 }
 
+- (void)reset {
+    // empty
+}
+
 - (void)reloadData {
     // empty
 }
