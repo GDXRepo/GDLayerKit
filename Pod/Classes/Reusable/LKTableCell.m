@@ -56,7 +56,9 @@
 }
 
 - (void)reset {
-    // empty
+    // override & reset your component state to its defaults, then call super
+    // ...
+    [self reloadData];
 }
 
 - (void)reloadData {
