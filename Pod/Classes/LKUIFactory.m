@@ -157,7 +157,7 @@
 }
 
 + (UIView *)viewWithSuperview:(UIView *)view {
-    return [self.class viewWithBackgroundColor:UIColor.whiteColor superview:view];
+    return [self.class viewWithBackgroundColor:UIColor.clearColor superview:view];
 }
 
 + (UIView *)view {
