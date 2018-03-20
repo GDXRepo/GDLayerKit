@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "GDLayerKit"
-  s.version          = "2.0.0"
+  s.version          = "2.0.1"
   s.summary          = "Library designed for easy integrating MVVM support into your application without using complex reactive frameworks."
   s.homepage         = "https://github.com/GDXRepo/GDLayerKit"
   s.license          = { :type => "MIT", :file => "LICENSE" }
