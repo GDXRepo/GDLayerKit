@@ -8,7 +8,16 @@
 
 #import "LKViewController.h"
 
+@interface LKViewController () {
+    NSMutableSet<id<LKUserInterfaceObject>> *_childObjects;
+}
+
+@end
+
+
 @implementation LKViewController
+
+@synthesize childObjects = _childObjects;
 
 #pragma mark - Root
 
@@ -32,8 +41,16 @@
 
 #pragma mark - LKView
 
+- (void)addChildObject:(id<LKUserInterfaceObject>)object {
+    [_childObjects addObject:object];
+}
+
+- (void)removeChildObject:(id<LKUserInterfaceObject>)object {
+    [_childObjects removeObject:object];
+}
+
 - (void)setup {
-    // empty
+    _childObjects = [NSMutableSet new];
 }
 
 - (void)make {
