@@ -12,7 +12,7 @@
 #import "LKHelper.h"
 
 /// Represents reusable UI component.
-@interface LKComponent : UIView <LKComponent>
+@interface LKComponent : UIView <LKCompoundObject>
 
 @end
 

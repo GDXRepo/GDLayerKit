@@ -8,7 +8,16 @@
 
 #import "LKComponent.h"
 
+@interface LKComponent () {
+    NSMutableSet<id<LKUserInterfaceObject>> *_childObjects;
+}
+
+@end
+
+
 @implementation LKComponent
+
+@synthesize childObjects = _childObjects;
 
 #pragma mark - Root
 
@@ -27,9 +36,18 @@
     [self setNeedsUpdateConstraints];
 }
 
-#pragma mark - LKComponent
+#pragma mark - LKCompoundObject
+
+- (void)addChildObject:(id<LKUserInterfaceObject>)object {
+    [_childObjects addObject:object];
+}
+
+- (void)removeChildObject:(id<LKUserInterfaceObject>)object {
+    [_childObjects removeObject:object];
+}
 
 - (void)setup {
+    _childObjects = [NSMutableSet new];
     self.clipsToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
 }
@@ -39,21 +57,30 @@
 }
 
 - (void)updateConstraints {
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object updateConstraints];
+    }
     [super updateConstraints];
 }
 
 - (void)localize {
-    // empty
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object localize];
+    }
 }
 
 - (void)reset {
-    // override & reset your component state to its defaults, then call super
-    // ...
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object reset];
+    }
     [self reloadData];
 }
 
 - (void)reloadData {
-    // empty
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object reloadData];
+    }
+    [self setNeedsUpdateConstraints];
 }
 
 @end

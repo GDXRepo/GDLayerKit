@@ -12,7 +12,10 @@
 #define LKUIBegin(Classname) Classname *v = [[Classname alloc] initWithFrame:CGRectZero]
 #define LKUIEnd [view addSubview:v]; return v;
 
-@protocol LKUIConfigurable <NSObject>
+#define LKNotImplemented() NSAssert(NO, @"Not implemented.")
+#define LKMustOverride() NSAssert(NO, @"Must be overridden.")
+
+@protocol LKUserInterfaceObject <NSObject>
 
 /**
  Performs setup.
@@ -32,24 +35,29 @@
 /// Updates the component's data using its current state.
 - (void)reloadData;
 
+/// Updates constraints using SnapKit/Masonry library.
+- (void)updateConstraints;
+
 @end
 
 
-@protocol LKView <LKUIConfigurable>
+@protocol LKCompoundObject <LKUserInterfaceObject>
 
-/// Updates constraints using SnapKit/Masonry library.
-- (void)updateViewConstraints;
+@property (nonatomic, readonly) NSSet<id<LKUserInterfaceObject>> *childObjects;
+
+/// Adds the specified user interface object as a child object.
+- (void)addChildObject:(id<LKUserInterfaceObject>)object;
+
+/// Removes the specified child user interface object.
+- (void)removeChildObject:(id<LKUserInterfaceObject>)object;
+
+@end
+
+
+@protocol LKBindingObject <LKCompoundObject>
 
 /// Performs binding.
 - (void)bindAll;
-
-@end
-
-
-@protocol LKComponent <LKUIConfigurable>
-
-/// Updates constraints using SnapKit/Masonry library.
-- (void)updateConstraints;
 
 @end
 

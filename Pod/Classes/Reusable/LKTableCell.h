@@ -11,7 +11,7 @@
 #import "LKUIFactory.h"
 #import "LKHelper.h"
 
-@interface LKTableCell : UITableViewCell <LKComponent>
+@interface LKTableCell : UITableViewCell <LKCompoundObject>
 
 /**
  Creates subviews.

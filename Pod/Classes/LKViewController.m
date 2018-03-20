@@ -21,8 +21,8 @@
     // initialize
     [self setup];
     [self make];
-    [self bindAll];
     [self localize];
+    [self bindAll];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,6 +38,10 @@
 
 - (void)make {
     // empty
+}
+
+- (void)updateConstraints {
+    [self updateViewConstraints]; // just the synonym
 }
 
 - (void)updateViewConstraints {

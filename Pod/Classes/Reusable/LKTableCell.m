@@ -8,7 +8,15 @@
 
 #import "LKTableCell.h"
 
+@interface LKTableCell () {
+    NSMutableSet<id<LKUserInterfaceObject>> *_childObjects;
+}
+
+@end
+
 @implementation LKTableCell
+
+@synthesize childObjects = _childObjects;
 
 #pragma mark - Root
 
@@ -37,10 +45,18 @@
     [self setNeedsUpdateConstraints];
 }
 
-#pragma mark - LKComponent
+#pragma mark - LKCompoundObject
+
+- (void)addChildObject:(id<LKUserInterfaceObject>)object {
+    [_childObjects addObject:object];
+}
+
+- (void)removeChildObject:(id<LKUserInterfaceObject>)object {
+    [_childObjects removeObject:object];
+}
 
 - (void)setup {
-    // empty
+    _childObjects = [NSMutableSet new];
 }
 
 - (void)make {
@@ -48,21 +64,30 @@
 }
 
 - (void)updateConstraints {
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object updateConstraints];
+    }
     [super updateConstraints];
 }
 
 - (void)localize {
-    // empty
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object localize];
+    }
 }
 
 - (void)reset {
-    // override & reset your component state to its defaults, then call super
-    // ...
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object reset];
+    }
     [self reloadData];
 }
 
 - (void)reloadData {
-    // empty
+    for (id<LKUserInterfaceObject> object in self.childObjects) {
+        [object reloadData];
+    }
+    [self setNeedsUpdateConstraints];
 }
 
 @end

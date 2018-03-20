@@ -12,8 +12,8 @@
 #import "LKUIFactory.h"
 #import "LKHelper.h"
 
-/// Implements app's screen. Reflects View(Controller) entity in the MVVM architecture pattern.
-@interface LKViewController : UIViewController <LKView>
+/// Represents app's screen. Reflects the View(Controller) entity in the MVVM architecture pattern.
+@interface LKViewController : UIViewController <LKBindingObject>
 
 @property (nonatomic, readonly) LKViewModel *viewModel;
 @property (nonatomic, readonly) Class viewModelClass;
