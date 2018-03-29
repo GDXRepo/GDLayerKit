@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "LKUITheme.h"
 #import "LKHelper.h"
+#import "LKMarkupView.h"
 
 @interface LKUIFactory : NSObject
 
@@ -17,6 +18,14 @@
 
 + (__kindof LKUITheme *)appTheme;
 + (Class)themeClass;
+
+#pragma mark - Common
+
++ (LKMarkupView *)markupWithBackgroundColor:(UIColor *)backgroundColor
+                                  textColor:(UIColor *)textColor
+                                borderColor:(UIColor *)borderColor
+                                  superview:(UIView *)view;
++ (LKMarkupView *)markupWithSuperview:(UIView *)view;
 
 #pragma mark - UIButton
 

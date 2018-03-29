@@ -35,9 +35,6 @@
 /// Updates the component's data using its current state.
 - (void)reloadData;
 
-/// Updates constraints using SnapKit/Masonry library.
-- (void)updateConstraints;
-
 @end
 
 

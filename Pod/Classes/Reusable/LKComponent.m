@@ -57,8 +57,10 @@
 }
 
 - (void)updateConstraints {
-    for (id<LKUserInterfaceObject> object in self.childObjects) {
-        [object updateConstraints];
+    for (id object in self.childObjects) {
+        if ([object respondsToSelector:@selector(updateConstraints)]) {
+            [object updateConstraints];
+        }
     }
     [super updateConstraints];
 }

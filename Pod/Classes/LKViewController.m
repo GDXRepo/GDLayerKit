@@ -34,11 +34,6 @@
     [self bindAll];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.view setNeedsUpdateConstraints];
-}
-
 #pragma mark - LKView
 
 - (void)addChildObject:(id<LKUserInterfaceObject>)object {

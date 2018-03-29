@@ -15,5 +15,6 @@
 #import "LKViewController.h"
 #import "LKTableCell.h"
 #import "LKCollectionCell.h"
+#import "LKMarkupView.h"
 
 #endif /* GDLayerKit_h */

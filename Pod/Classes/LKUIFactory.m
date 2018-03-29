@@ -25,6 +25,23 @@
     return LKUITheme.class;
 }
 
+#pragma mark - Common
+
++ (LKMarkupView *)markupWithBackgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor borderColor:(UIColor *)borderColor superview:(UIView *)view {
+    LKMarkupView *v = [[LKMarkupView alloc] initWithFrame:CGRectZero];
+    v.backgroundColor = backgroundColor;
+    v.textColor = textColor;
+    v.layer.borderColor = borderColor.CGColor;
+    LKUIEnd;
+}
+
++ (LKMarkupView *)markupWithSuperview:(UIView *)view {
+    return [self.class markupWithBackgroundColor:UIColor.lightGrayColor
+                                       textColor:UIColor.blackColor
+                                     borderColor:UIColor.redColor
+                                       superview:view];
+}
+
 #pragma mark - UIButton
 
 + (UIButton *)buttonWithImageNamed:(NSString *)imageName target:(id)target action:(SEL)action superview:(UIView *)view {
