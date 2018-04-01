@@ -67,7 +67,7 @@
     LKUIEnd;
 }
 
-+ (UIButton *)buttonWithText:(NSString *)text font:(UIFont *)font target:(id)target action:(SEL)action superview:(UIView *)view {
++ (UIButton *)buttonWithFont:(UIFont *)font target:(id)target action:(SEL)action superview:(UIView *)view {
     return [self.class buttonWithFont:font
                             textColor:UIColor.blackColor
                                target:target
