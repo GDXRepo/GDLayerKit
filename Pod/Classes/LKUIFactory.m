@@ -57,14 +57,10 @@
     return [self.class buttonWithImageNamed:imageName target:nil action:nil superview:view];
 }
 
-+ (UIButton *)buttonWithText:(NSString *)text font:(UIFont *)font textColor:(UIColor *)color target:(id)target action:(SEL)action superview:(UIView *)view {
++ (UIButton *)buttonWithFont:(UIFont *)font textColor:(UIColor *)color target:(id)target action:(SEL)action superview:(UIView *)view {
     UIButton *v = [UIButton buttonWithType:UIButtonTypeCustom];
-    NSDictionary *attri = @{
-                            NSFontAttributeName : font,
-                            NSForegroundColorAttributeName : color
-                            };
-    NSAttributedString *string = [[NSAttributedString alloc] initWithString:text attributes:attri];
-    [v setAttributedTitle:string forState:UIControlStateNormal];
+    v.titleLabel.font = font;
+    [v setTitleColor:color forState:UIControlStateNormal];
     if (target && action) {
         [v addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     }
@@ -72,8 +68,7 @@
 }
 
 + (UIButton *)buttonWithText:(NSString *)text font:(UIFont *)font target:(id)target action:(SEL)action superview:(UIView *)view {
-    return [self.class buttonWithText:text
-                                 font:font
+    return [self.class buttonWithFont:font
                             textColor:UIColor.blackColor
                                target:target
                                action:action
@@ -151,6 +146,16 @@
 
 + (UILabel *)labelWithSuperview:(UIView *)view {
     return [self.class labelWithWordWrap:YES superview:view];
+}
+
+#pragma mark - UIStackView
+
++ (UIStackView *)stackViewWithDistribution:(UIStackViewDistribution)distribution axis:(UILayoutConstraintAxis)axis superview:(UIView *)view {
+    LKUIBegin(UIStackView);
+    v.translatesAutoresizingMaskIntoConstraints = NO;
+    v.distribution = distribution;
+    v.axis = axis;
+    LKUIEnd;
 }
 
 #pragma mark - UITableView

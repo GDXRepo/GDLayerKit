@@ -31,14 +31,12 @@
 
 + (UIButton *)buttonWithImageNamed:(NSString *)imageName target:(id)target action:(SEL)action superview:(UIView *)view;
 + (UIButton *)buttonWithImageNamed:(NSString *)imageName superview:(UIView *)view;
-+ (UIButton *)buttonWithText:(NSString *)text
-                        font:(UIFont *)font
++ (UIButton *)buttonWithFont:(UIFont *)font
                    textColor:(UIColor *)color
                       target:(id)target
                       action:(SEL)action
                    superview:(UIView *)view;
-+ (UIButton *)buttonWithText:(NSString *)text
-                        font:(UIFont *)font
++ (UIButton *)buttonWithFont:(UIFont *)font
                       target:(id)target
                       action:(SEL)action
                    superview:(UIView *)view;
@@ -61,6 +59,12 @@
                  superview:(UIView *)view;
 + (UILabel *)labelWithWordWrap:(BOOL)isWordWrap superview:(UIView *)view;
 + (UILabel *)labelWithSuperview:(UIView *)view;
+
+#pragma mark - UIStackView
+
++ (UIStackView *)stackViewWithDistribution:(UIStackViewDistribution)distribution
+                                      axis:(UILayoutConstraintAxis)axis
+                                 superview:(UIView *)view;
 
 #pragma mark - UITableView
 
