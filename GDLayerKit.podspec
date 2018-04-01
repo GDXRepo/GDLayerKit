@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/GDXRepo/LayerKit.git", :tag => s.version.to_s }
   s.social_media_url = 'https://vk.com/deadlineru'
 
-  s.platform     = :ios, '8.2'
+  s.platform     = :ios, '11.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
