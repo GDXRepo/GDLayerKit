@@ -9,7 +9,7 @@
 #import "LKCollectionCell.h"
 
 @interface LKCollectionCell () {
-    NSMutableSet<id<LKUserInterfaceObject>> *_childObjects;
+    NSMutableArray<id<LKUserInterfaceObject>> *_childObjects;
 }
 
 @end
@@ -47,7 +47,7 @@
 }
 
 - (void)setup {
-    _childObjects = [NSMutableSet new];
+    _childObjects = [NSMutableArray new];
 }
 
 - (void)make {
@@ -56,8 +56,11 @@
 
 - (void)updateConstraints {
     for (id object in self.childObjects) {
-        if ([object respondsToSelector:@selector(updateConstraints)]) {
-            [object updateConstraints];
+        if ([object isKindOfClass:UIView.self]) {
+            UIView *view = (UIView *)object;
+            if (view.superview) {
+                [view updateConstraints];
+            }
         }
     }
     [super updateConstraints];

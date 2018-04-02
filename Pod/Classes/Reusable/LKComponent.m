@@ -9,7 +9,7 @@
 #import "LKComponent.h"
 
 @interface LKComponent () {
-    NSMutableSet<id<LKUserInterfaceObject>> *_childObjects;
+    NSMutableArray<id<LKUserInterfaceObject>> *_childObjects;
 }
 
 @end
@@ -47,7 +47,7 @@
 }
 
 - (void)setup {
-    _childObjects = [NSMutableSet new];
+    _childObjects = [NSMutableArray new];
     self.clipsToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
 }
@@ -58,8 +58,11 @@
 
 - (void)updateConstraints {
     for (id object in self.childObjects) {
-        if ([object respondsToSelector:@selector(updateConstraints)]) {
-            [object updateConstraints];
+        if ([object isKindOfClass:UIView.self]) {
+            UIView *view = (UIView *)object;
+            if (view.superview) {
+                [view updateConstraints];
+            }
         }
     }
     [super updateConstraints];

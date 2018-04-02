@@ -9,7 +9,7 @@
 #import "LKViewController.h"
 
 @interface LKViewController () {
-    NSMutableSet<id<LKUserInterfaceObject>> *_childObjects;
+    NSMutableArray<id<LKUserInterfaceObject>> *_childObjects;
 }
 
 @end
@@ -45,7 +45,7 @@
 }
 
 - (void)setup {
-    _childObjects = [NSMutableSet new];
+    _childObjects = [NSMutableArray new];
 }
 
 - (void)make {

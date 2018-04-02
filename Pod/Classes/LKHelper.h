@@ -40,7 +40,7 @@
 
 @protocol LKCompoundObject <LKUserInterfaceObject>
 
-@property (nonatomic, readonly) NSSet<id<LKUserInterfaceObject>> *childObjects;
+@property (nonatomic, readonly) NSArray<id<LKUserInterfaceObject>> *childObjects;
 
 /// Adds the specified user interface object as a child object.
 - (void)addChildObject:(id<LKUserInterfaceObject>)object;
