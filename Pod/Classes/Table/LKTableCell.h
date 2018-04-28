@@ -13,6 +13,8 @@
 
 @interface LKTableCell : UITableViewCell <LKCompoundObject>
 
+@property (nonatomic, strong) id data;
+
 /**
  Creates subviews.
  @discussion Please do not forget to use "self.contentView" instead of "self"!
