@@ -30,6 +30,7 @@
     // initialize
     [self setup];
     [self make];
+    [self updateViewConstraints];
     [self localize];
     [self bindAll];
 }
@@ -50,10 +51,6 @@
 
 - (void)make {
     // empty
-}
-
-- (void)updateConstraints {
-    [self updateViewConstraints]; // just the synonym
 }
 
 - (void)updateViewConstraints {

@@ -13,7 +13,7 @@
 #import "LKHelper.h"
 #import "LKComponent.h"
 #import "LKViewController.h"
-#import "LKTableCell.h"
+#import "LKTableView.h"
 #import "LKCollectionCell.h"
 #import "LKMarkupView.h"
 
