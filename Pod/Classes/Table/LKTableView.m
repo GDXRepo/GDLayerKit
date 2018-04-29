@@ -44,7 +44,7 @@
     self.rowHeight = UITableViewAutomaticDimension;
     self.sectionHeaderHeight = UITableViewAutomaticDimension;
     self.sectionFooterHeight = UITableViewAutomaticDimension;
-//    self.translatesAutoresizingMaskIntoConstraints = NO;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)make {

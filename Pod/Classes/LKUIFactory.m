@@ -139,7 +139,7 @@
 
 + (UILabel *)labelWithWordWrap:(BOOL)isWordWrap superview:(UIView *)view {
     return [self.class labelWithFont:[UIFont systemFontOfSize:17]
-                           textColor:UIColor.whiteColor
+                           textColor:UIColor.blackColor
                             wordWrap:isWordWrap
                            superview:view];
 }

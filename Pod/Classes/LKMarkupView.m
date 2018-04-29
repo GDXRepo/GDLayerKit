@@ -14,6 +14,8 @@
 
 #pragma mark - Setup
 
+- (void)setup;
+- (void)make;
 - (void)reloadData;
 
 @end
@@ -83,20 +85,18 @@
     self.sizeLabel.textColor = self.textColor;
 }
 
-#pragma mark - NSObject
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    [self reloadData];
-}
-
-#pragma mark - Layout
-
 - (void)updateConstraints {
     [self.sizeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.and.left.equalTo(@4);
         make.right.and.bottom.equalTo(@-4);
     }];
     [super updateConstraints];
+}
+
+#pragma mark - NSObject
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    [self reloadData];
 }
 
 #pragma mark - Properties

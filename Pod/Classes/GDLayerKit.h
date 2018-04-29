@@ -12,9 +12,8 @@
 #import <Foundation/Foundation.h>
 #import "LKHelper.h"
 #import "LKComponent.h"
+#import "LKMarkupView.h"
 #import "LKViewController.h"
 #import "LKTableView.h"
-#import "LKCollectionCell.h"
-#import "LKMarkupView.h"
 
 #endif /* GDLayerKit_h */

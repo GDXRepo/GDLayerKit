@@ -85,7 +85,6 @@
     for (id<LKUserInterfaceObject> object in self.childObjects) {
         [object reset];
     }
-    [self reloadData];
 }
 
 - (void)reloadData {

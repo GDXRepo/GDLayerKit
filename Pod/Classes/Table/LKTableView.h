@@ -11,48 +11,50 @@
 #import "LKTableSection.h"
 #import "LKTableCell.h"
 
+/// Represents LKTableView data source.
 @protocol LKTableViewSource <NSObject>
 
+/**
+ Creates map containing model-to-cell classes relationships.
+ @return Model-to-cell classes relationships map.
+ */
 - (NSDictionary<NSString *, Class> *)makeModelToCellMap;
+
+/**
+ Creates sections according to current business logic's state.
+ @return List of actual table sections.
+ */
 - (NSArray<LKTableSection *> *)makeSections;
 
 @end
 
-
+/// Represents table view with alternative data management principles.
 @interface LKTableView : UITableView <LKUserInterfaceObject>
 
+/// Table data source.
 @property (nonatomic, strong) id<LKTableViewSource> source;
 
 #pragma mark - Refresh
 
+/**
+ Creates Pull-to-Refresh component for the table.
+ @param target Target.
+ @param selector Selector.
+ @param color Tint color for pull-to-refresh component itself.
+ */
 - (void)setupPullToRefreshWithTarget:(id)target selector:(SEL)selector tintColor:(UIColor *)color;
-- (void)setupPullToRefreshWithTarget:(id)target selector:(SEL)selector;
-- (void)beginRefreshing;
-- (void)endRefreshing;
 
-//#pragma mark - Sections
-//
-//- (void)addSection:(LKTableSection *)section;
-//- (void)addSectionsFromArray:(NSArray<LKTableSection *> *)array;
-//- (void)insertSection:(LKTableSection *)section atIndex:(NSUInteger)index;
-//- (void)insertSections:(NSArray<LKTableSection *> *)sections atIndexes:(NSIndexSet *)indexes;
-//- (void)removeSection:(LKTableSection *)section;
-//- (void)removeAllSections;
-//- (void)removeSectionIdenticalTo:(LKTableSection *)section inRange:(NSRange)range;
-//- (void)removeSectionIdenticalTo:(LKTableSection *)section;
-//- (void)removeSectionsInArray:(NSArray<LKTableSection *> *)otherArray;
-//- (void)removeSectionsInRange:(NSRange)range;
-//- (void)removeSection:(LKTableSection *)section inRange:(NSRange)range;
-//- (void)removeLastSection;
-//- (void)removeSectionAtIndex:(NSUInteger)index;
-//- (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
-//- (void)replaceSectionAtIndex:(NSUInteger)index withSection:(LKTableSection *)section;
-//- (void)replaceSectionsWithSectionsFromArray:(NSArray<LKTableSection *> *)otherArray;
-//- (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray<LKTableSection *> *)sections;
-//- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray<LKTableSection *> *)otherArray range:(NSRange)otherRange;
-//- (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray<LKTableSection *> *)otherArray;
-//- (void)exchangeSectionAtIndex:(NSUInteger)idx1 withSectionAtIndex:(NSUInteger)idx2;
-//- (void)sortSectionsUsingFunction:(NSComparisonResult (*)(LKTableSection *, LKTableSection *, void *))compare context:(void *)context;
-//- (void)sortSectionsUsingSelector:(SEL)comparator;
+/**
+ Creates Pull-to-Refresh component for the table with dark gray tint color.
+ @param target Target.
+ @param selector Selector.
+ */
+- (void)setupPullToRefreshWithTarget:(id)target selector:(SEL)selector;
+
+/// Starts pull-to-refresh animation if the referenced component is set up.
+- (void)beginRefreshing;
+
+/// Ends pull-to-refresh animation if the referenced component is set up.
+- (void)endRefreshing;
 
 @end

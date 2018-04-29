@@ -11,8 +11,10 @@
 #import "LKUIFactory.h"
 #import "LKHelper.h"
 
+/// Represents table cell.
 @interface LKTableCell : UITableViewCell <LKCompoundObject>
 
+/// Data to display inside the cell.
 @property (nonatomic, strong) id data;
 
 /**

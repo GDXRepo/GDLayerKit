@@ -11,7 +11,6 @@
 
 #define LKUIBegin(Classname) Classname *v = [[Classname alloc] initWithFrame:CGRectZero]
 #define LKUIEnd [view addSubview:v]; return v;
-
 #define LKNotImplemented() NSAssert(NO, @"Not implemented.")
 #define LKMustOverride() NSAssert(NO, @"Must be overridden.")
 
@@ -40,6 +39,7 @@
 
 @protocol LKCompoundObject <LKUserInterfaceObject>
 
+/// Contains child objects.
 @property (nonatomic, readonly) NSArray<id<LKUserInterfaceObject>> *childObjects;
 
 /// Adds the specified user interface object as a child object.
@@ -53,7 +53,7 @@
 
 @protocol LKBindingObject <LKCompoundObject>
 
-/// Performs binding.
+/// Performs KVO-based property-to-action binding.
 - (void)bindAll;
 
 @end
