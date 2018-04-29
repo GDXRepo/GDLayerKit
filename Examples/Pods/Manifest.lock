@@ -1,0 +1,24 @@
+PODS:
+  - GDLayerKit (2.2.0):
+    - Masonry
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
+
+DEPENDENCIES:
+  - GDLayerKit
+  - MBProgressHUD
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - GDLayerKit
+    - Masonry
+    - MBProgressHUD
+
+SPEC CHECKSUMS:
+  GDLayerKit: b6b5e9a3219adc534d45f7577eb090aedf43f893
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+
+PODFILE CHECKSUM: 2e69e997f59a53e05742cdec6fdb2c1fb8dda6a3
+
+COCOAPODS: 1.5.0
